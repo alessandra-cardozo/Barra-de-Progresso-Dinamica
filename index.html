@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barra de Progresso Dinâmica</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Barra de Progresso com Cores Dinâmicas e Bolinhas Exclusivas</h1>
+    <div class="progress__bg">
+      <div :style="{ backgroundColor: currentColor }" :class="progressClasses" class="progress"></div>
+    </div>
+
+    <div v-for="(step, index) in steps" :class="stepClasses(index)" class="progress__step">
+      <div :style="{ backgroundColor: stepColors[index], borderColor: index === currentStepIndex ? '#000000' : '#808080' }" class="progress__indicator">
+        <i class="fa fa-check" v-if="index <= currentStepIndex"></i>
+      </div>
+      <div class="progress__label">{{ step.label }}</div>
+    </div>
+
+    <div class="progress__actions">
+      <button class="btn" @click="nextStep(false)">Voltar</button>
+      <button class="btn" @click="nextStep()">Avançar</button>
+      <button class="btn" @click="startAutoProgress()">Iniciar Automático</button>
+      <button class="btn" @click="stopAutoProgress()">Parar</button>
+      <button class="btn" @click="resetProgress()">Recomeçar</button>
+    </div>
+
+    <div>Etapa Atual: {{ currentStep ? currentStep.label : "Início" }}</div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
