@@ -1,4 +1,4 @@
-Entendido, Alessandra! Reescrevi o `README.md` considerando que o propósito do projeto é treinar habilidades em HTML, CSS e JavaScript. Aqui está o novo texto:
+O propósito do projeto é treinar habilidades em HTML, CSS e JavaScript. 
 
 ---
 
